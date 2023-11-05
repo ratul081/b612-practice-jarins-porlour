@@ -92,7 +92,7 @@ const SingUp = () => {
         </div>
       </form>
       <div className="flex flex-col items-center">
-        <button class="flex items-center justify-center mt-8 mb-4 transition-colors duration-300 transform border rounded-full">
+        <button class="flex items-center justify-center mt-8 transition-colors duration-300 transform border rounded-full">
           <div className="px-4 py-2">
             <BsFacebook className="w-9 h-9 text-blue-800" />
           </div>
@@ -101,7 +101,8 @@ const SingUp = () => {
             Continue with Facebook
           </p>
         </button>
-        <button class="flex items-center justify-center mt-8 mb-4 transition-colors duration-300 transform border rounded-full">
+        <div className="divider">OR</div>
+        <button class="flex items-center justify-center mb-4 transition-colors duration-300 transform border rounded-full">
           <div class="px-4 py-2">
             <svg class="w-9 h-9" viewBox="0 0 40 40">
               <path

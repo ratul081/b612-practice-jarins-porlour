@@ -6,6 +6,10 @@ import LogIn from "../../Pages/Login/LogIn";
 import Reviews from "../../Pages/Reviews/Reviews";
 import Services from "../../Pages/Services/Services";
 import SingUp from "../../Pages/SingUp/SingUp";
+import OrderList from "../../Pages/AdminPages/OrderList/OrderList";
+import AddService from "../../Pages/AdminPages/AddService/AddService";
+import MakeAdmin from "../../Pages/AdminPages/MakeAdmin/MakeAdmin";
+import ManageServices from "../../Pages/AdminPages/ManageServices/ManageServices";
 
 export const routes = createBrowserRouter([
   {
@@ -37,6 +41,22 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/review",
         element: <Reviews></Reviews>,
+      },
+      {
+        path: "/dashboard/order-list",
+        element: <OrderList></OrderList>,
+      },
+      {
+        path: "/dashboard/add-service",
+        element: <AddService></AddService>,
+      },
+      {
+        path: "/dashboard/make-admin",
+        element: <MakeAdmin></MakeAdmin>,
+      },
+      {
+        path: "/dashboard/manage-services",
+        element: <ManageServices></ManageServices>,
       },
     ],
   },
