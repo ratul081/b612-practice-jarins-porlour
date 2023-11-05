@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Layouts/Dashboard/Dashboard";
 import Main from "../../Layouts/Main/Main";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../Pages/Login/LogIn";
+import Reviews from "../../Pages/Reviews/Reviews";
+import Services from "../../Pages/Services/Services";
 import SingUp from "../../Pages/SingUp/SingUp";
-import Dashboard from "../../Layouts/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
   {
@@ -30,6 +32,11 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
+        element: <Services></Services>,
+      },
+      {
+        path: "/dashboard/review",
+        element: <Reviews></Reviews>,
       },
     ],
   },
