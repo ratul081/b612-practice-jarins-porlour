@@ -20,7 +20,7 @@ const AddService = () => {
             <div>
               <label className="label font-semibold">Image</label>
               <div className="flex items-center ">
-                <label class="w-64 px-4 py-2 flex items-center gap-2 bg-[#FFEAF3] text-primary border-primary font-semibold rounded-lg tracking-wide border border-blue cursor-pointer">
+                <label className="w-64 px-4 py-2 flex items-center gap-2 bg-[#FFEAF3] text-primary border-primary font-semibold rounded-lg tracking-wide border border-blue cursor-pointer">
                   <AiOutlineCloudUpload className="w-6 h-6"></AiOutlineCloudUpload>
                   Upload image
                   <input type="file" className="hidden" />

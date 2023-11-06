@@ -8,8 +8,8 @@ const Testimonial = () => {
           What our <span className="text-blue-500 ">clients</span> say
         </h1>
         <section className="grid grid-cols-1 gap-8  xl:mt-6 lg:grid-cols-2 xl:grid-cols-3">
-          {[...Array(3).keys()].map((number) => (
-            <div className="p-6">
+          {[...Array(3).keys()].map((number, i) => (
+            <div key={i} className="p-6">
               <div className="flex items-center -mx-2">
                 <img
                   className="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700"
@@ -32,6 +32,7 @@ const Testimonial = () => {
               <div className="rating mt-2">
                 {[...Array(5).keys()].map((number) => (
                   <input
+                    key={number}
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-orange-400"

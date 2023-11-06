@@ -9,8 +9,10 @@ const HomeServices = () => {
           <span className="text-primary"> Services</span>
         </h1>
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
-          {[...Array(3).keys()].map((number) => (
-            <div className="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl ">
+          {[...Array(3).keys()].map((number, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl ">
               <span className="inline-block p-3 text-blue-500 bg-blue-100 rounded-full ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
