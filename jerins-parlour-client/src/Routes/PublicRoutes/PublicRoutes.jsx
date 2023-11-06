@@ -10,11 +10,14 @@ import OrderList from "../../Pages/AdminPages/OrderList/OrderList";
 import AddService from "../../Pages/AdminPages/AddService/AddService";
 import MakeAdmin from "../../Pages/AdminPages/MakeAdmin/MakeAdmin";
 import ManageServices from "../../Pages/AdminPages/ManageServices/ManageServices";
+import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
+import Book from "../../Pages/Book/Book";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -41,6 +44,10 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/review",
         element: <Reviews></Reviews>,
+      },
+      {
+        path: "/dashboard/book",
+        element: <Book></Book>,
       },
       {
         path: "/dashboard/order-list",
