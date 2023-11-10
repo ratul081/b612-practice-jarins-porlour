@@ -1,109 +1,145 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { BsFacebook } from "react-icons/bs";
 
 const SingUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    validate,
+    reset,
+    getValues,
+  } = useForm();
+  const onSubmit = (data) => console.log("click", data);
+  console.log("error", errors);
   return (
     <div className="flex flex-col mx-96 justify-center mt-4">
-      <form className="p-12 border rounded">
+      <form onSubmit={handleSubmit(onSubmit)} className="p-12 border rounded">
         <div>
           <h1 className="text-2xl font-semibold">Create an account</h1>
         </div>
-        <div className="py-8 text-base leading-6 space-y-10 text-gray-700 sm:text-lg sm:leading-7">
-          <div className="relative">
-            <input
-              autocomplete="off"
-              id="email"
-              name="email"
-              type="text"
-              className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-              placeholder="Email address"
-            />
-            <label
-              for="email"
-              className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm">
-              First Name
-            </label>
+        <div className="py-8 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
+          <div className="mt-6">
+            <div className="relative">
+              <input
+                {...register("firstName", {
+                  required: "Please enter your first name",
+                })}
+                type="text"
+                className="peer placeholder-transparent mt-3 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                placeholder="Email address"
+              />
+              <label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm cursor-text">
+                First Name
+              </label>
+            {errors.firstName && (
+              <span className="text-red-500 text-sm">
+                {errors.firstName.message}
+              </span>
+            )}
+            </div>
           </div>
-          <div className="relative">
-            <input
-              autocomplete="off"
-              id="password"
-              name="password"
-              type="password"
-              className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-              placeholder="Password"
-            />
-            <label
-              for="password"
-              className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm">
-              Last Name
-            </label>
+          <div className="mt-6">
+            <div className="relative">
+              <input
+                type="text"
+                {...register("lastName", {
+                  required: "Please enter your last name",
+                })}
+                className="peer placeholder-transparent mt-3 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                placeholder=""
+              />
+              <label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm cursor-text">
+                Last Name
+              </label>
+            </div>
+            {errors.email && (
+              <span className="text-red-500 text-sm mt-2">{`${errors.email.message}`}</span>
+            )}
           </div>
-          <div className="relative">
-            <input
-              autocomplete="off"
-              id="password"
-              name="password"
-              type="password"
-              className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-              placeholder="Password"
-            />
-            <label
-              for="password"
-              className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm">
-              Username or Email
-            </label>
+          <div className="mt-6">
+            <div className="relative">
+              <input
+                {...register("email", {
+                  required: "Please enter your email",
+                  pattern: /^\S+@\S+$/i,
+                })}
+                type="email"
+                className="peer placeholder-transparent mt-3 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                placeholder=""
+              />
+              <label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm cursor-text">
+                Username or Email
+              </label>
+            </div>
+            {errors.email && (
+              <span className="text-red-500 text-sm mt-2">{`${errors.email.message}`}</span>
+            )}
           </div>
-          <div className="relative">
-            <input
-              autocomplete="off"
-              id="password"
-              name="password"
-              type="password"
-              className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-              placeholder="Password"
-            />
-            <label
-              for="password"
-              className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm">
-              Password
-            </label>
+          <div className="mt-6">
+            <div className="relative">
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 10 characters",
+                  },
+                })}
+                type="password"
+                className="peer placeholder-transparent mt-3 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                placeholder=""
+              />
+              <label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm cursor-text">
+                Password
+              </label>
+              {errors.password && (
+                <span className="text-red-500 text-sm mt-2">{`${errors.password.message}`}</span>
+              )}
+            </div>
           </div>
-          <div className="relative">
-            <input
-              autocomplete="off"
-              id="password"
-              name="password"
-              type="password"
-              className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-              placeholder="Password"
-            />
-            <label
-              for="password"
-              className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm">
-              Confirm Password
-            </label>
+          <div className="mt-6">
+            <div className="relative">
+              <input
+                {...register("passwordConfirmation", {
+                  validate: (value) =>
+                    value === getValues("password") || "Passwords must match",
+                  required: validate ? "" : "Passwords must match",
+                })}
+                type="password"
+                className="peer placeholder-transparent mt-3 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                placeholder="Confirm Password"
+              />
+              <label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-black peer-placeholder-shown:font-semibold  peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-black peer-focus:semibold peer-focus:text-sm cursor-text">
+                Confirm Password
+              </label>
+            </div>
+            {errors.passwordConfirmation && (
+              <span className="text-red-500 text-sm mt-2">{`${errors.passwordConfirmation.message}`}</span>
+            )}
           </div>
-          <input
-            type="submit"
-            className="w-full btn btn-primary normal-case"
-            value="Create account"
-          />
         </div>
+        <input
+          type="submit"
+          className="w-full btn btn-primary normal-case"
+          value="Create account"
+        />
       </form>
       <div className="flex flex-col items-center">
-        <button class="flex items-center justify-center mt-8 mb-4 transition-colors duration-300 transform border rounded-full">
+        <button className="flex items-center justify-center mt-8 transition-colors duration-300 transform border rounded-full">
           <div className="px-4 py-2">
             <BsFacebook className="w-9 h-9 text-blue-800" />
           </div>
 
-          <p class="w-5/6 me-20 ms-12 px-10   py-3 font-bold text-center">
+          <p className="w-5/6 me-20 ms-12 px-10   py-3 font-bold text-center">
             Continue with Facebook
           </p>
         </button>
-        <button class="flex items-center justify-center mt-8 mb-4 transition-colors duration-300 transform border rounded-full">
-          <div class="px-4 py-2">
-            <svg class="w-9 h-9" viewBox="0 0 40 40">
+        <div className="divider">OR</div>
+        <button className="flex items-center justify-center mb-4 transition-colors duration-300 transform border rounded-full">
+          <div className="px-4 py-2">
+            <svg className="w-9 h-9" viewBox="0 0 40 40">
               <path
                 d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
                 fill="#FFC107"
@@ -123,7 +159,7 @@ const SingUp = () => {
             </svg>
           </div>
 
-          <p class="w-5/6 me-20 ms-12 px-10   py-3 font-bold text-center">
+          <p className="w-5/6 me-20 ms-12 px-10   py-3 font-bold text-center">
             Continue with Google
           </p>
         </button>
